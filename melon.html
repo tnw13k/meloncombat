@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>Hamster Combat</title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <link rel="icon" href="/hamster.jpg">
+       <style>
+        body{
+          font-family: system-ui;
+          text-align: center;
+        }
+       </style>
+    </head>
+    <body>
+        <div id="global">
+          <h2>Hamster Combat HTML5</h2>
+          Your goal : 5000 clicks
+          <h2><div id="counter">0</div></h2>
+          <input type="image" src="/melon.png" id="clickButton" draggable="false">
+          <div>
+            <input type="checkbox" id="animationToggle" checked> Enable Animation
+          </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+    let count = 0;
+    const counter = document.getElementById('counter');
+    const button = document.getElementById('clickButton');
+    const animationToggle = document.getElementById('animationToggle');
+    const targetClicks = 5000;
+
+    button.addEventListener('click', () => {
+        count++;
+        counter.textContent = count;
+
+        if (count >= targetClicks) {
+            alert('Congratulations! You have reached 100000 clicks!');
+        }
+    });
+
+    animationToggle.addEventListener('change', () => {
+        if (animationToggle.checked) {
+            button.classList.add('animate');
+        } else {
+            button.classList.remove('animate');
+        }
+    });
+
+    if (animationToggle.checked) {
+        button.classList.add('animate');
+    } else {
+        button.classList.remove('animate');
+    }
+});
+        </script>
+
+    </body>
+    <footer>
+
+         Melon Combat by TIMENETWORK13K 2024
+         <div>5000 clicks and almost no style melon combat compact</div>
+    </footer>
+</html>
