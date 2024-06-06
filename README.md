@@ -9,3 +9,5 @@
 Удачи тебе в прохождение веб-игры
 
 Melon combat by TIMENETWORK13K 2024
+
+И есть телеграм бот https://t.me/meloncombatbot
