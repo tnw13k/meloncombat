@@ -1,64 +1,89 @@
 <!DOCTYPE html>
-<html>
-    <head>
-       <title>Hamster Combat</title>
-       <meta charset="utf-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1">
-       <link rel="icon" href="/hamster.jpg">
-       <style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://tnw13k.github.io/meloncombat/melon.png">
+    <title>Генератор реферальных ссылок для melon combat</title>
+    <meta name="description" content="Сайт для генерирование реферальных ссылок для Melon Combat">
+    <style>
+        #referral-message {
+            margin-bottom: 20px;
+        }
+        #referral-container {
+            margin-top: 20px;
+            max-width: 500px;
+            margin: auto;
+            width: 50%;
+        }
         body{
-          font-family: system-ui;
-          text-align: center;
-        }
-       </style>
-    </head>
-    <body>
-        <div id="global">
-          <h2>Hamster Combat HTML5</h2>
-          Your goal : 5000 clicks
-          <h2><div id="counter">0</div></h2>
-          <input type="button" src="melon.png" id="clickButton" draggable="false">
-          <div>
-            <input type="checkbox" id="animationToggle" checked> Enable Animation
-          </div>
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-    let count = 0;
-    const counter = document.getElementById('counter');
-    const button = document.getElementById('clickButton');
-    const animationToggle = document.getElementById('animationToggle');
-    const targetClicks = 5000;
+    margin: 0;
+    text-align: center;
+    height: 98vh;    
+    background: linear-gradient(#464646,#050505);
+    color: #ffffff;
+    /*SITE FONT*/
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    cursor: crosshair;
 
-    button.addEventListener('click', () => {
-        count++;
-        counter.textContent = count;
+}
+.create{
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(#464646,#252525);
+    color: white;
+    cursor: cell;
+}
+.generate{    
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background: linear-gradient(#464646,#252525);
+    color: white;
+    cursor: cell;
+}
+    </style>
+</head>
+<body>
+    <div id="referral-message"></div>
+      <h3><label for="referral-name">Введите ваш никнейм для реферальной ссылки:</label></h3>     
+    <div id="referral-container">
 
-        if (count >= targetClicks) {
-            alert('Congratulations! You have reached 100000 clicks!');
-        }
-    });
+        <input type="text" id="referral-name" style="background: linear-gradient(#464646,#3a3a3a); color: white;">
+        <button id="generate-link"  class="create">Сгенерировать ссылку</button>        
+        <input type="text" id="referral-link" readonly style="background: linear-gradient(#464646,#3a3a3a); color: white;">
+        <button id="copy-link" class="generate">Копировать ссылку</button>
+        </div>    
 
-    animationToggle.addEventListener('change', () => {
-        if (animationToggle.checked) {
-            button.classList.add('animate');
-        } else {
-            button.classList.remove('animate');
-        }
-    });
+    <script>
+const referralNameInput = document.getElementById('referral-name');
+const generateLinkButton = document.getElementById('generate-link');
+const referralLinkInput = document.getElementById('referral-link');
+const copyLinkButton = document.getElementById('copy-link');
 
-    if (animationToggle.checked) {
-        button.classList.add('animate');
+generateLinkButton.addEventListener('click', () => {
+    const name = referralNameInput.value.trim();
+    if (name) {
+        const referralLink = `https://tnw13k.github.io/meloncombat/?username=${encodeURIComponent(name)}`;
+        referralLinkInput.value = referralLink;
     } else {
-        button.classList.remove('animate');
+        alert('Пожалуйста, введите ваше имя.');
     }
 });
-        </script>
 
-    </body>
-    <footer>
+copyLinkButton.addEventListener('click', () => {
+    if (referralLinkInput.value) {
+        referralLinkInput.select();
+        document.execCommand('copy');
+        alert('Ссылка скопирована в буфер обмена!');
+    } else {
+        alert('Сначала сгенерируйте ссылку.');
+    }
+});
 
-         Melon Combat by TIMENETWORK13K 2024
-         <div>5000 clicks and almost no style melon combat compact</div>
-    </footer>
+    </script>
+</body>
 </html>
