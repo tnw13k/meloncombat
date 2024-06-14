@@ -10,4 +10,4 @@
 
 Melon combat by TIMENETWORK13K 2024
 
-И есть телеграм бот https://t.me/meloncombatbot
+Ссылка на игру https://tnw13k.github.io/meloncombat/?username=timenetwork13k
